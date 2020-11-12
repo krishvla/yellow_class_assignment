@@ -1,11 +1,11 @@
 import 'dart:math';
-
 import 'package:chewie/chewie.dart';
 import 'package:chewie/src/chewie_player.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 import 'package:camera/camera.dart';
+import 'package:draggable_widget/draggable_widget.dart';
 
 void main() {
   runApp(
@@ -25,12 +25,15 @@ class VideoPlayerApp extends StatefulWidget {
 }
 
 class _VideoPlayerAppState extends State<VideoPlayerApp> {
+  DragController dragController = DragController();
   TargetPlatform _platform;
   VideoPlayerController _videoPlayerController1;
   ChewieController _chewieController;
   CameraController _controller;
   List<CameraDescription> _cameras;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  double top = 0;
+  double left = 0;
 
   Future<void> _initCamera() async {
     _cameras = await availableCameras();
@@ -115,26 +118,33 @@ class _VideoPlayerAppState extends State<VideoPlayerApp> {
   Widget _buildCameraPreview() {
     return Stack(
       children: [
-        Transform.rotate(
-          angle: 11,
-          alignment: Alignment.bottomRight,
-          child: Container(
-            margin: EdgeInsets.only(left: 680, top: 200),
-            padding: EdgeInsets.all(5),
-            width: 100,
-            height: 100,
-            child: CameraPreview(_controller),
-            decoration: new BoxDecoration(
-              color: Color.fromARGB(255, 75, 131, 243),
-              shape: BoxShape.rectangle,
-              borderRadius: new BorderRadius.circular(8.0),
-              boxShadow: <BoxShadow>[
-                new BoxShadow(
-                  color: Colors.black12,
-                  blurRadius: 10.0,
-                  // offset: new Offset(0.0, 10.0),
-                ),
-              ],
+        DraggableWidget(
+          bottomMargin: 150,
+          intialVisibility: true,
+          horizontalSapce: 0,
+          shadowBorderRadius: 50,
+          initialPosition: AnchoringPosition.bottomLeft,
+          dragController: dragController,
+          child: Transform.rotate(
+            angle: 11,
+            alignment: Alignment.bottomRight,
+            child: Container(
+              padding: EdgeInsets.all(5),
+              width: 100,
+              height: 100,
+              child: CameraPreview(_controller),
+              decoration: new BoxDecoration(
+                color: Color.fromARGB(255, 75, 131, 243),
+                shape: BoxShape.rectangle,
+                borderRadius: new BorderRadius.circular(8.0),
+                boxShadow: <BoxShadow>[
+                  new BoxShadow(
+                    color: Colors.black12,
+                    blurRadius: 10.0,
+                    // offset: new Offset(0.0, 10.0),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
