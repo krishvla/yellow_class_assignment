@@ -1,6 +1,6 @@
 # yellow_project
 
-![App Demo Vide](demos/demo.png "Demo Video")
+![App Demo Vide0](demos/demo.gif "Demo Video")
 
 ## Getting Started
 
