@@ -2,7 +2,7 @@
 
 ## OverView
 
-  This app plays a video with a video link and display's an overlay **draggable** front camera straming container on above the video player.
+  This app plays a video with a video link and display's an overlay **draggable** front camera streaming container on above the video player.
   
 ## Demo
 
