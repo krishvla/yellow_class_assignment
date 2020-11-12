@@ -6,7 +6,7 @@
   
 ## Demo
 
-![App Demo Vide0](demos/demo.gif "Demo Video")
+![App Demo Vide0](demos/new_demo.gif "Demo Video")
 
 ## Known Error's
   - Sometimes Camera will not be displayed due to permission issues
