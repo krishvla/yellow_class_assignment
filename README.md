@@ -1,7 +1,15 @@
-# yellow_project
+# Task App 
+
+## OverView
+
+  This app plays a video with a video link and display's an overlay draggable front camera straming container on above the video player.
+  
+## Demo
 
 ![App Demo Vide0](demos/demo.gif "Demo Video")
 
+## Known Error's
+  - Sometimes Camera will not be displayed due to permission issues
 ## Getting Started
 
 This project is a starting point for a Flutter application.
